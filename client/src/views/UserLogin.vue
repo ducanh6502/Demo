@@ -83,6 +83,11 @@ async function handleLogin() {
       
       <div class="auth-links">
         <p>Chưa có tài khoản? <router-link to="/register">Đăng ký ngay</router-link></p>
+        <p class="admin-link">
+          <router-link to="/admin/login" class="btn btn-secondary btn-sm">
+            Đăng nhập dành cho Admin
+          </router-link>
+        </p>
       </div>
     </div>
   </div>
@@ -142,5 +147,15 @@ async function handleLogin() {
 .auth-links a {
   color: var(--primary);
   text-decoration: underline;
+}
+
+.admin-link {
+  margin-top: 16px;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  text-decoration: none;
 }
 </style>
