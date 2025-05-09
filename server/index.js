@@ -25,8 +25,15 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
+// Create uploads directory if it doesn't exist
+import fs from 'fs';
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
 // Serve uploads folder
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(uploadsDir));
 
 // Routes
 app.use('/api/users', userRoutes);
